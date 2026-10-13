@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Estructuras de Datos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Visualizador de Estructuras de Datos</h1>
+            <p>Aprende de forma interactiva cómo funcionan las listas enlazadas.</p>
+        </header>
+        
+        <main>
+            <section class="controls-panel">
+                <div class="structure-selector">
+                    <h2>Tipo de Estructura</h2>
+                    <select id="data-structure-select">
+                        <option value="singly">Lista Enlazada Simple</option>
+                        <option value="doubly">Lista Enlazada Doble</option>
+                        <option value="circular">Lista Enlazada Circular Simple</option>
+                        <option value="circular-doubly">Lista Enlazada Circular Doble</option>
+                    </select>
+                </div>
+                
+                <div class="actions-panel">
+                    <h2>Operaciones</h2>
+                    <div class="input-group" style="display: flex; gap: 10px;">
+                        <input type="text" id="node-value" placeholder="Valor (ej. 42)">
+                        <input type="number" id="insert-position" placeholder="Pos. (ej. 2)" min="0" style="width: 100px;">
+                    </div>
+                    <div class="buttons-grid">
+                        <button id="btn-add-tail" class="btn primary">Insertar al Final</button>
+                        <button id="btn-add-head" class="btn secondary">Insertar al Inicio</button>
+                        <button id="btn-insert-at" class="btn primary" style="grid-column: span 2;">Insertar en Posición Específica</button>
+                        <button id="btn-remove-tail" class="btn danger">Eliminar Final</button>
+                        <button id="btn-remove-head" class="btn danger">Eliminar Inicio</button>
+                    </div>
+                    
+                    <h2 class="mt-2">Búsqueda</h2>
+                    <div class="input-group">
+                        <select id="search-type" class="custom-select">
+                            <option value="linear">Búsqueda Lineal</option>
+                            <option value="binary">Búsqueda Binaria</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="search-value" placeholder="Valor a buscar">
+                        <button id="btn-search" class="btn primary">Buscar</button>
+                    </div>
+
+                    <h2 class="mt-2">Ordenamiento</h2>
+                    <div class="input-group">
+                        <select id="sort-type" class="custom-select">
+                            <option value="bubble">Burbuja (Bubble Sort)</option>
+                            <option value="selection">Selección (Selection Sort)</option>
+                            <option value="insertion">Inserción (Insertion Sort)</option>
+                        </select>
+                    </div>
+                    <div class="buttons-grid mt-2">
+                        <button id="btn-sort" class="btn secondary">Ordenar Lista</button>
+                        <button id="btn-clear" class="btn outline mt-2">Vaciar Lista</button>
+                    </div>
+                </div>
+
+                <div class="info-panel">
+                    <h2>Información de la Estructura</h2>
+                    <div id="structure-info">
+                        Selecciona una estructura para ver su información.
+                    </div>
+                </div>
+            </section>
+
+            <section class="visualizer-container">
+                <div class="visualizer-header">
+                    <h2>Vista Gráfica</h2>
+                </div>
+                <div id="canvas" class="canvas">
+                    <!-- Los nodos se renderizarán aquí -->
+                </div>
+                
+                <div class="action-log-panel">
+                    <div class="log-header">
+                        <h3>Registro de Acciones</h3>
+                        <button id="btn-clear-log" class="btn outline small">Limpiar</button>
+                    </div>
+                    <ul id="action-log" class="log-list">
+                        <li class="log-entry system">Visualizador inicializado. Listo para operar.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js" type="module"></script>
+</body>
+</html>
